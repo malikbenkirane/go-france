@@ -37,7 +37,7 @@ var cmdGenerate = &cobra.Command{
 					return fmt.Errorf("%s: os: open: %w", c.label, err)
 				}
 				defer f.Close()
-				ns, err := fakename.NewSet(f, fakename.NamesetWithLabel(c.label)) // label will be overwritten with staticNnames
+				ns, err := fakename.NewSet(f, fakename.NamesetWithLabel(c.label)) // label will be overwritten with staticNames
 				if err != nil {
 					return fmt.Errorf("%s: fakename: new set: %w", c.label, err)
 				}
