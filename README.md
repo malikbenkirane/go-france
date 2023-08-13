@@ -30,7 +30,7 @@ Feel free to file issues and pull requests 🚀
 Roadmap
 -
 
-Don't rely anymore on `/data`, may be some `go generate` magical trick 🤔
+Open to suggestions... 😊
 
 
 nat.ipynb

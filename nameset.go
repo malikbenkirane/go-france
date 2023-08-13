@@ -10,6 +10,7 @@ import (
 type Nameset interface {
 	RandomName() string
 	Label() string
+	All() (name []string, count []int, cum int)
 }
 
 type nsconf struct {
@@ -78,4 +79,8 @@ func (ns nameset) RandomName() string {
 
 func (ns nameset) Label() string {
 	return ns.conf.label
+}
+
+func (ns nameset) All() (name []string, count []int, cum int) {
+	return ns.name, ns.count, ns.cum
 }
