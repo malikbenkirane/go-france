@@ -2,6 +2,7 @@ package fakename
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"testing"
 
@@ -21,7 +22,7 @@ func ExampleNewSet() {
 
 		{
 			var eg errgroup.Group
-			for _, s := range []struct {
+			for _, _s := range []struct {
 				src   string
 				label string
 			}{
@@ -34,12 +35,13 @@ func ExampleNewSet() {
 					label: "firstnames",
 				},
 			} {
+				s := _s
 				eg.Go(func() error {
 					f, err := os.Open(s.src)
 					if err != nil {
 						return fmt.Errorf("%s: os: open: %w", s.label, err)
 					}
-					ns, err := NewSet(f)
+					ns, err := NewSet(f, NamesetWithRand(rand.New(rand.NewSource(42)))) // read also go doc math/rand
 					if err != nil {
 						return fmt.Errorf("%s: new set: %w", s.label, err)
 					}
@@ -79,5 +81,7 @@ func ExampleNewSet() {
 	}
 
 	fmt.Println(fn.RandomName(), ln.RandomName())
+
+	// Output: MARCELLE LEMEE
 
 }
