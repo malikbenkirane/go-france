@@ -12,6 +12,27 @@ Raw data from the INSEE:
 ); archives at `public/insee_noms_2008.txt.zip`
 
 
+Use
+-
+
+    go get github.com/malikbenkirane/go-france
+
+Read th docs at [pkg.go.dev/github.com/malikbenkirane/go-france](
+  https://pkg.go.dev/github.com/malikbenkirane/go-france
+). You will find there an example with `NewSet` on how to load provided
+firstnames and lastnames sets concurrently.
+
+Of course this is not perfect and every suggestion is welcome 🙂
+
+Feel free to file issues and pull requests 🚀
+
+
+Roadmap
+-
+
+Don't rely anymore on `/data`, may be some `go generate` magical trick 🤔
+
+
 nat.ipynb
 -
 
