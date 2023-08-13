@@ -1,0 +1,12 @@
+current:
+    tag:
+        release:
+            name: alpha
+        revision: 1
+        version:
+            major: 0
+            minor: 0
+            patch: 0
+draft: true
+dry_mode: false
+remote: origin
