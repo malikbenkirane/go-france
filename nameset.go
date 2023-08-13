@@ -9,15 +9,18 @@ import (
 
 type Nameset interface {
 	RandomName() string
+	Label() string
 }
 
 type nsconf struct {
-	r *rand.Rand
+	r     *rand.Rand
+	label string
 }
 
 func defaultNamesetConfig() nsconf {
 	return nsconf{
-		r: rand.New(rand.NewSource(time.Now().UnixNano())),
+		r:     rand.New(rand.NewSource(time.Now().UnixNano())),
+		label: "no label",
 	}
 }
 
@@ -26,6 +29,13 @@ type NamesetOption func(nsconf) nsconf
 func NamesetWithRand(r *rand.Rand) NamesetOption {
 	return func(n nsconf) nsconf {
 		n.r = r
+		return n
+	}
+}
+
+func NamesetWithLabel(label string) NamesetOption {
+	return func(n nsconf) nsconf {
+		n.label = label
 		return n
 	}
 }
@@ -64,4 +74,8 @@ func (ns nameset) RandomName() string {
 		}
 	}
 	return ns.name[i]
+}
+
+func (ns nameset) Label() string {
+	return ns.conf.label
 }

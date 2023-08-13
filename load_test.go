@@ -26,7 +26,7 @@ func TestLoad(t *testing.T) {
 			require.NoError(t, err)
 			ns, err := NewSet(f)
 			require.NoError(t, err)
-			for i := 0; i < 100; i++ {
+			for i := 0; i < 4; i++ {
 				t.Log(ns.RandomName())
 			}
 		})
